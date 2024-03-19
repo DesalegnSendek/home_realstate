@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+import logo from '../assets/images/logo.jpg';
 
 export const Footer = () =>   {
   return (
@@ -11,10 +11,10 @@ export const Footer = () =>   {
               to="/"
               className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse"
             >
-              <img src={""} className="h-8" alt="dESS_movie" />
+              <img src={logo} className="h-8" alt="dESS Real State" />
 
               <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-                dESS_movie
+                dESS Real State
               </span>
             </Link>
 
@@ -69,7 +69,7 @@ export const Footer = () =>   {
           <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">
             © 2023{" "}
             <Link href="/" className="hover:underline">
-              dESS_movie™
+              dESS Real State™
             </Link>
             . All Rights Reserved.
           </span>
