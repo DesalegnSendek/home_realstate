@@ -9,14 +9,14 @@ import { ForgotPassword } from "./pages/ForgotPassword";
 
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
-import  {About_Us}  from './pages/About_Us';
+import   {AboutUs}   from './pages/AboutUs';
 
 
 
 
 function App() {
   return (
-    <div className="App">
+    <div className="App dark:bg-slate-800">
       <Router>
       <Header />
         <Routes>
@@ -26,8 +26,7 @@ function App() {
           <Route path="/sign-up" element={<Signup />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
-          <Route path="/about-us" element={<About_Us />} />
-
+          <Route path="/about-us" element={<AboutUs />} />
         </Routes>
         <Footer />
       </Router>
