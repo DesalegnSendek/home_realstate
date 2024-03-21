@@ -3,6 +3,10 @@ import home from '../assets/images/home.jpg';
 import { AiFillEyeInvisible, AiFillEye  } from "react-icons/ai"
 import { Link } from 'react-router-dom';
 import { OAuth } from '../components/OAuth';
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+
+
+
 
 export const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -22,15 +26,22 @@ setFormData((prevState)=>({
 
 }));
 }
+function submitFunction(e){
+e.preventDefault();
 
-const [num, setnum] = useState(0);
-function increase(){
-  setnum(prev=>prev+1);
+try {
+  const auth = getAuth();
+  const userCredential = createUserWithEmailAndPassword(auth, email, password);
+
+  const user = userCredential.user;
+  console.log(user);
+
+} catch (error) {
+  console.log(error)
 }
 
-function decrease(){
-   setnum(prev=>prev-1);
 }
+
 
   return (
     <>
@@ -38,12 +49,12 @@ function decrease(){
       <h1 className='text-3xl text-center mt-6 font-bold mb-6'>Sign Up</h1>
       <div className='flex justify-center flex-wrap items-center px-6 py-12 max-w-6xl mx-auto '> 
       <div className='flex'>
-         <div className='md:w-[40%] lg:[30%] mb-12 md:mb-6'> 
+         <div className='md:w-[40%] lg: [30%] mb-12 md:mb-6'> 
             <img src={home} alt='home' className='w-full rounded-2xl'/>
          </div>
 
          <div className='w-full md:w-[50%] lg:[30%] ml-6 ' >
-           <form> 
+         <form onSubmit={submitFunction}> 
              <input
                 type='name'
                 placeholder='user name'
@@ -97,26 +108,11 @@ function decrease(){
                 <Link to="/forgot-password" className='text-blue-600 hover:text-blue-800 transition-duration-200 ease-in-out '>forgot password?</Link>
                  </p>
              </div>
-
-           </form>
-
-            
-
+         </form>              
          </div>
-        
       </div>     
     </div>
     </section>
-
-   
-        <button        
-        onClick={increase}>Increase</button>
-
-         <button >{num}</button>
-
-        <button 
-        onClick={decrease}>Decrease</button>
-
     </>
 
   )
