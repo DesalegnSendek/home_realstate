@@ -72,7 +72,7 @@ function decrease(){
 
 
                  <div className='mb-6 whitespace-nowrap text-sm sm:text-lg'>
-                      <p> Don/t have an account?
+                      <p> Don't have an account?
                         <Link to="/Sign-up" className='text-red-600 hover:text-red-700 transition-duration-200 ease-in-out ml-2'>Register</Link>
                       </p>
                       <p>
