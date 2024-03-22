@@ -3,9 +3,9 @@ import home from '../assets/images/home.jpg';
 import { AiFillEyeInvisible, AiFillEye  } from "react-icons/ai"
 import { Link } from 'react-router-dom';
 import { OAuth } from '../components/OAuth';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 
-
+// import { db } from '../Firebase';
 
 
 export const Signup = () => {
@@ -26,22 +26,31 @@ setFormData((prevState)=>({
 
 }));
 }
-function submitFunction(e){
+
+async function submitFunction(e) {
 e.preventDefault();
 
 try {
-  const auth = getAuth();
-  const userCredential = createUserWithEmailAndPassword(auth, email, password);
 
-  const user = userCredential.user;
-  console.log(user);
+  const auth = getAuth()
+  const userCredential = await createUserWithEmailAndPassword(
+     auth,
+     email,
+     password
+     )
+
+     updateProfile(auth.currentUser,{
+        displayName:username
+
+     })
+  const user = userCredential.user
+
+  console.log(user)
 
 } catch (error) {
   console.log(error)
 }
-
 }
-
 
   return (
     <>

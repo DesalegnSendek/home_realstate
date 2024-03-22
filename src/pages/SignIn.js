@@ -21,17 +21,9 @@ setFormData((prevState)=>({
 }));
 }
 
-const [num, setnum] = useState(0);
-function increase(){
-  setnum(prev=>prev+1);
-}
-
-function decrease(){
-   setnum(prev=>prev-1);
-}
 
   return (
-    <>
+  <>
     <section>
       <h1 className='text-3xl text-center mt-6 font-bold mb-6'>Sign in</h1>
       <div className='flex justify-center flex-wrap items-center px-6 py-12 max-w-6xl mx-auto '> 
@@ -97,17 +89,7 @@ function decrease(){
       </div>     
     </div>
     </section>
-
-   
-        <button        
-        onClick={increase}>Increase</button>
-
-         <button >{num}</button>
-
-        <button 
-        onClick={decrease}>Decrease</button>
-
-    </>
+  </>
 
   )
 }
