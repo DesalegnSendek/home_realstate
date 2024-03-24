@@ -1,7 +1,9 @@
 {
     "cSpell.words": [
+        "firestore",
         "noreferrer",
         "setnum",
-        "tailwindcss"
+        "tailwindcss",
+        "toastify"
     ]
 }
